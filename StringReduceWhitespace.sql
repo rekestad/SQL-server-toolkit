@@ -10,6 +10,8 @@ BEGIN
 		--- Description ---
 		-------------------
 		
+		https://github.com/rekestad/SQLServerToolkit/
+
 		Does two things:
 			1.	Replaces line breaks, tabs and multiple spaces in @String with one (1) space (' ')
 			2.	Returns NULL if result from step 1 is empty or only whitespace, 
