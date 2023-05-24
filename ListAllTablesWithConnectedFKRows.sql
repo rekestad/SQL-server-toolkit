@@ -20,6 +20,23 @@ BEGIN
 		You're also served a ready-made SELECT script for all tables (ListRowsScript).
 
 		Change the type of @Id to 'int' if you're using that as primary key instead of guids.
+
+		#########################
+		######## EXAMPLE ########
+		#########################
+
+		INPUT:
+
+		EXEC dbo.Util_ListAllTablesWithConnectedFKRows
+			@Table = 'User',
+			@EntityId = 'ABB4C982-4D05-4FB0-BE8B-B284A2172D0F'
+
+		OUTPUT:
+
+		DbTable					DbColumn			NoOfRows	ListRowsScript
+		dbo.Organization		CreatedById			1			SELECT * FROM dbo.Organization X WHERE X.[CreatedById] = 'ABB4C982-4D05-4FB0-BE8B-B284A2172D0F'
+		dbo.TaskResponsible		UserId				10			SELECT * FROM dbo.TaskResponsible X WHERE X.[UserId] = 'ABB4C982-4D05-4FB0-BE8B-B284A2172D0F'
+		dbo.Application			UpdatedById			1			SELECT * FROM dbo.Application X WHERE X.[UpdatedById] = 'ABB4C982-4D05-4FB0-BE8B-B284A2172D0F'
 	*/
 	SET NOCOUNT ON;
 	
